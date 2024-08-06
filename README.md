@@ -2,9 +2,9 @@
 
 
 
-________________________________________________________________________________________________________Setup Instructions____________________________________________________________________________________________________________________
+______________________Setup Instructions_________________
 
-**1. Clone the Repository:**
+1. Clone the Repository:
   git clone https://github.com/ravilla7032/books_project_by_anilravilla.git
   cd google_books
 
