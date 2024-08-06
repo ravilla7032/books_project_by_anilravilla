@@ -19,20 +19,22 @@
   
 5. Configure Environment Variables:
    Create a .env file in the project root and add the following:
-   DEBUG=1
-   SECRET_KEY='django-insecure-fgi*9*)xsd=p=^d)$a*5b%ms^9efm4e*(7ybwk65xl3!u4+g1)'
-   DB_ENGINE='django.db.backends.postgresql'
-   DB_NAME='books_buzz'
-   DB_USER='admin1'
-   DB_PASSWORD='admin@123'
-   DB_HOST='localhost'
-   DB_PORT='5432'
-
-   DEFAULT_FROM_EMAIL='ravilla.anil3@gmail.com'  # your mail
-   EMAIL_HOST_USER='ravilla.anil3@gmail.com'  # your mail
-   EMAIL_HOST_PASSWORD='kgcg wjng cpiv yfxb'  # your App password
-   EMAIL_PORT=587
-   EMAIL_USE_TLS=True
+   ```plaintext
+    DEBUG=1
+    SECRET_KEY='django-insecure-fgi*9*)xsd=p=^d)$a*5b%ms^9efm4e*(7ybwk65xl3!u4+g1)'
+   
+    DB_ENGINE='django.db.backends.postgresql'
+    DB_NAME='books_buzz'
+    DB_USER='admin1'
+    DB_PASSWORD='admin@123'
+    DB_HOST='localhost'
+    DB_PORT='5432'
+    
+    DEFAULT_FROM_EMAIL='ravilla.anil3@gmail.com'  # your mail
+    EMAIL_HOST_USER='ravilla.anil3@gmail.com'  # your mail
+    EMAIL_HOST_PASSWORD='kgcg wjng cpiv yfxb'  # your App password
+    EMAIL_PORT=587
+    EMAIL_USE_TLS=True
 
 7. Apply Migrations:
 
