@@ -1,21 +1,19 @@
 # books_project_by_anilravilla
 
-
-
-______________________Setup Instructions_________________
+________________Setup Instructions_________________
 
 1. Clone the Repository:
   git clone https://github.com/ravilla7032/books_project_by_anilravilla.git
   cd google_books
 
-**2. Create and Activate Virtual Environment:**
+2. Create and Activate Virtual Environment:
   python -m venv venv
   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-**3. Install Dependencies:**
+3. Install Dependencies:
   pip install -r requirements.txt
 
-**4. Create the PostgreSQL Database:**
+4. Create the PostgreSQL Database:
   Create a PostgreSQL database named books_buzz, create a user named admin1 with the password admin@123, and grant all privileges to this user on the database, using below commands
 
   CREATE DATABASE <name>;
