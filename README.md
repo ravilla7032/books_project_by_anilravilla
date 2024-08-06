@@ -1,6 +1,6 @@
 # books_project_by_anilravilla
 
-________________Setup Instructions_________________
+# Setup Instructions
 
 1. Clone the Repository:
   git clone https://github.com/ravilla7032/books_project_by_anilravilla.git
@@ -14,28 +14,15 @@ ________________Setup Instructions_________________
   pip install -r requirements.txt
 
 4. Create the PostgreSQL Database:
-  Create a PostgreSQL database named books_buzz, create a user named admin1 with the password admin@123, and grant all privileges to this user on the database, using below commands
-
-  CREATE DATABASE <name>;
-  CREATE USER <username> WITH PASSWORD <'password'>;
-  GRANT ALL PRIVILEGES ON DATABASE <dbname> TO <username>;
+  Create a PostgreSQL database named books_buzz and a user named admin1 with the password admin@123. Grant all privileges on the database to this user.
+  Save the database details for later use in a .env file with the following entries: DB_NAME=books_buzz, DB_USER=admin1, and DB_PASSWORD=admin@123.
   
-  Save the following database credentials to your .env file:
-  DB_ENGINE='django.db.backends.postgresql'
-  DB_NAME='books_buzz'
-  DB_USER='admin1'
-  DB_PASSWORD='admin@123'
-  DB_HOST='localhost'
-  DB_PORT='5432'
-
-
-**5. Configure Environment Variables:**
-  _Create a .env file in the project root and add the following:_
+5. Configure Environment Variables:
+   Create a .env file in the project root and add the following:
   
   DEBUG=1
   SECRET_KEY='django-insecure-fgi*9*)xsd=p=^d)$a*5b%ms^9efm4e*(7ybwk65xl3!u4+g1)'
   
-  # Database Credentials
   DB_ENGINE='django.db.backends.postgresql'
   DB_NAME='books_buzz'
   DB_USER='admin1'
@@ -43,31 +30,31 @@ ________________Setup Instructions_________________
   DB_HOST='localhost'
   DB_PORT='5432'
   
-  # Email Credentials
   DEFAULT_FROM_EMAIL='ravilla.anil3@gmail.com'  # your mail
   EMAIL_HOST_USER='ravilla.anil3@gmail.com'  # your mail
   EMAIL_HOST_PASSWORD='kgcg wjng cpiv yfxb'  # your App password
   EMAIL_PORT=587
   EMAIL_USE_TLS=True
 
-**6. Apply Migrations:**
+6. Apply Migrations:
 
-  python manage.py makemigrations
-  python manage.py migrate
+  • python manage.py makemigrations
+  • python manage.py migrate
 
-________________________________________________________________________________________________________Api Endpoints____________________________________________________________________________________________________________________
+
+# Api Endpoints
 
 Access all API endpoints through the Postman collection link below. This collection provides comprehensive API documentation, including details on requests, responses, exceptions, and additional notes for each endpoint.
 This collection provides comprehensive API documentation, including details on requests, responses, exceptions, and additional notes for each endpoint.
 
 Postman Collection Link: https://documenter.getpostman.com/view/37485860/2sA3rxrtna
 
-________________________________________________________________________________________________________Google Books API Integration____________________________________________________________________________________________________________________
 
+# Google Books API Integration
 
 The BooksConfigurations API endpoint is designed to search for books using the Google Books API. It allows users to search for books based on different criteria such as keyword, title, author, and categories. The results from the Google Books API are fetched, processed, and stored in the local database for further querying and retrieval.
 
-**Key Features**
+Key Features:
 
 1. Book Search
    
@@ -87,14 +74,14 @@ The BooksConfigurations API endpoint is designed to search for books using the G
 4. Display of Search Results
 
   --> After processing and storing the data, the API searches the local database based on the provided search type and key.
-  --> It filters the results and returns a list of books that match the search criteria, including additional details such as the number of recommendations, comments, and average rating.
+  --> It filters the results and returns a list of books that match the search criteria, including additional details such as the number of recommendations, comments, and average   rating.
 
 5. Error Handling
 
   --> The API includes error handling to manage potential exceptions during data retrieval, processing, and storage, returning appropriate error messages if something goes wrong.
 
 
-**Example Workflow**
+Example Workflow
 
 
 1. Search Request:
@@ -122,8 +109,8 @@ Example: http://127.0.0.1:8000/api/books/book_search?search_type=title&search_ke
 -->  A successful response includes a JSON list of books matching the search criteria, with detailed information for each book.
 -->  In case of errors, an error message and status code are returned.
 
-________________________________________________________________________________________________________Authentication Features____________________________________________________________________________________________________________________
 
+# Authentication Features
 
 The authentication module of this project includes the following functionalities:
 
@@ -135,7 +122,6 @@ The authentication module of this project includes the following functionalities
 
   --> Password Reset: After verifying the OTP, users can reset their password if it meets the required complexity. The system ensures that new passwords are different from previous ones.
 
-**API Documentation**
 
 All API endpoints for the authentication module are documented in a Postman collection. This collection includes details on:
 
@@ -143,9 +129,10 @@ All API endpoints for the authentication module are documented in a Postman coll
 
   --> Postman Collection Link: https://documenter.getpostman.com/view/37485860/2sA3rxrtna
 
-________________________________________________________________________________________________________Backend API Implementation____________________________________________________________________________________________________________________
 
-***************************1. Models**********************************************************************
+# Backend API Implementation
+
+1. Models:
 
 The google_books project includes the following core models:
   --> Author: Represents book authors.
@@ -154,7 +141,7 @@ The google_books project includes the following core models:
   --> BookRating: Represents ratings given by users to books.
   --> Comment: Represents user comments on books.
 
-_Example Model Implementation_ :
+Example Model Implementation:
 
 class Author(models.Model):
     full_name = models.CharField(max_length=255)
@@ -195,7 +182,7 @@ class Comment(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-*****************************2. Serializer Usage*******************************************************
+2. Serializer Usage
 
 In the google_books project, the UserSerializer is employed to manage user registration functionality. It is utilized to validate and serialize user data submitted during the signup process.
   --> File: serializers.py
@@ -205,13 +192,13 @@ In the google_books project, the UserSerializer is employed to manage user regis
 --> View Integration: The UserSerializer is used in the RegisterUser API view to process registration requests. It validates incoming data, performs checks on mobile numbers and emails, and manages user creation and profile setup.
 --> Validation and Processing: The serializer ensures data integrity by validating the user input and facilitating the creation of user records in the database.
 
-*****************************3.  Views ******************************************************
+3.  Views:
 
 This document provides an overview of the functionalities offered by your Google Books Django project's APIs. It details the functionalities of each API endpoint along with the expected request data format and the response format.
 
-**Here's a breakdown of the functionalities offered by each class:**
+Here's a breakdown of the functionalities offered by each class:
 
-* **BooksConfigurations:**
+* **BooksConfigurations:
     * **GET /books/search** - Searches for books based on search key and search type (keyword, title, author, categories). 
         * Request:
             * `search_key`: (Required) The keyword or phrase to search for.
